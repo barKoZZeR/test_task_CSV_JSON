@@ -1,0 +1,14 @@
+deployment:
+  name: data_processing_deployment
+  entrypoint: flows/data_flow.py:data_processing_flow
+  tags: ["data-processing"]
+  parameters:
+    file_path: "/path/to/CSV.csv"
+    output_dir: "/path/to/Result"
+    column_name: "symbol"
+    chat_id: "chat_id"
+    bot_token: "token"
+  infra_overrides:
+    cpu_limit: 1
+    memory_limit: 512Mi
+    rate_limit: 1
